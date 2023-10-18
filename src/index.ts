@@ -47,7 +47,8 @@ function addListItem(task: Task) {
   const item = document.createElement('li');
   const label = document.createElement('label');
   const checkbox = document.createElement('input');
-  const date = document.createElement('span');
+  const date = document.createElement('p');
+  date.classList.add('to-do--date');
   date.innerText = formatDate(task.createdAt);
   const closeBtn = document.createElement('span');
   closeBtn.innerText = '❌';
@@ -60,30 +61,33 @@ function addListItem(task: Task) {
     saveTasks();
   });
 
+  checkbox.type = 'checkbox';
+  checkbox.checked = task.completed;
+  label.append(checkbox, task.title);
+  item.append(label, closeBtn, date);
+
+  todoList?.append(item);
+
   closeBtn.addEventListener('click', () => {
     item.remove();
     deleteTask(task.title);
   });
 
-  checkbox.type = 'checkbox';
-  checkbox.checked = task.completed;
-  label.append(checkbox, task.title, closeBtn, date);
-  item.append(label);
-
-  todoList?.append(item);
+  saveTasks();
 }
 
 function saveTasks() {
   localStorage.setItem('TASKS', JSON.stringify(tasks));
 }
 
+function deleteTask(title: string): void {
+  const filteredTasks = tasks.filter((task) => task.title !== title);
+
+  localStorage.setItem('TASKS', JSON.stringify(filteredTasks));
+}
+
 function loadTasks(): Task[] {
   const taskJSON = localStorage.getItem('TASKS');
   if (taskJSON == null) return [];
   return JSON.parse(taskJSON);
-}
-
-function deleteTask(title: string): void {
-  const filteredTasks = tasks.filter((task) => task.title !== title);
-  localStorage.setItem('TASKS', JSON.stringify(filteredTasks));
 }
