@@ -4,26 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo list</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./global.css" />
     <script type="module" src="/dist/index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <form id="to-do__form" action="#">
-      <input
-        type="text"
-        id="to-do__input"
-        name="to-do__input"
-        placeholder="Write a task.."
-      />
-      <button type="submit" class="to-do__btn">Create a task</button>
-    </form>
+  <body class="bg-red-200 h-full flex flex-col justify-center items-center">
+    <div class="container md flex flex-col justify-center items-center">
+      <form id="to-do__form" action="#" class="p-4 ms-2 text-stone-600">
+        <input
+          type="text"
+          id="to-do__input"
+          class="w-80 p-4 bg-slate-100 rounded-sm"
+          name="to-do__input"
+          placeholder="Write a task.."
+        />
+        <button
+          type="submit"
+          class="inline-block bg-slate-100 p-3 ml-3 rounded-sm"
+        >
+          Create a task
+        </button>
+      </form>
 
-    <main>
-      <div class="to-do">
-        <div class="to-do__container">
-          <ul class="to-do__list"></ul>
+      <main>
+        <div class="to-do text-stone-600">
+          <div class="to-do__container">
+            <ul
+              class="to-do__list flex flex-row flex-wrap justify-between items-stretch"
+            ></ul>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

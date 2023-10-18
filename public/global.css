@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  min-height: 100%;
+}
+
+/* body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#to-do__input {
+  max-width: 320px;
+  padding: 15px 20px;
+}
+
+.to-do__btn {
+  padding: 10px 15px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.to-do {
+  width: 100%;
+  max-width: 1320px;
+}
+
+.to-do__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-do__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}*/
+
+.to-do__list > li {
+  list-style: none;
+  background-color: rgb(241 245 249);
+  width: 300px;
+  margin: 12px 12px 12px 0;
+  max-width: 450px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  position: relative;
+}
+
+.to-do__list label {
+  display: inline-block;
+  padding: 25px 17px;
+  max-width: 300px;
+}
+
+.to-do__list label input {
+  margin-right: 8px;
+}
+
+.to-do__list li > span {
+  position: absolute;
+  display: block;
+  right: 5px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.to-do--date {
+  text-align: right;
+  font-size: 13px;
+}
+.crossed {
+  text-decoration: line-through;
+}
